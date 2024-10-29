@@ -79,6 +79,7 @@ Open the URL generated in your console. Once you grant permission to the app, yo
 
 ## Create a discount using graphQL
 
+```shell
 mutation discountAutomaticAppCreate($automaticAppDiscount: DiscountAutomaticAppInput!) {
   discountAutomaticAppCreate(automaticAppDiscount: $automaticAppDiscount) {
     automaticAppDiscount {
@@ -90,7 +91,9 @@ mutation discountAutomaticAppCreate($automaticAppDiscount: DiscountAutomaticAppI
     }
   }
 }
+```
 
+```shell
 {
   "automaticAppDiscount": {
     "title": "New order discount",
@@ -105,5 +108,8 @@ mutation discountAutomaticAppCreate($automaticAppDiscount: DiscountAutomaticAppI
     }
   }
 }
+```
+
+
 
 
