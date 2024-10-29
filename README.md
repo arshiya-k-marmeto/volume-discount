@@ -76,3 +76,34 @@ Open the URL generated in your console. Once you grant permission to the app, yo
 - [App extensions](https://shopify.dev/docs/apps/build/app-extensions)
 - [Extension only apps](https://shopify.dev/docs/apps/build/app-extensions/build-extension-only-app)
 - [Shopify CLI](https://shopify.dev/docs/apps/tools/cli)
+
+## Create a discount using graphQL
+
+mutation discountAutomaticAppCreate($automaticAppDiscount: DiscountAutomaticAppInput!) {
+  discountAutomaticAppCreate(automaticAppDiscount: $automaticAppDiscount) {
+    automaticAppDiscount {
+      discountId
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+{
+  "automaticAppDiscount": {
+    "title": "New order discount",
+    "functionId": "<function-id>",
+    "startsAt": "<date>",
+    "endsAt": null,
+    "metafields": {
+      "namespace": "volume-discount",
+      "key": "quantity-based",
+      "type":"json",
+      "value": "{\"tag\":\"volume_discount_arsh\",\"discounts\":[{\"quantity\":2,\"discount\":5,\"message\":\"15% volume discount\"},{\"quantity\":4,\"discount\":10,\"message\":\"20% volume discount\"},{\"quantity\":6,\"discount\":15,\"message\":\"25% volume discount\"}]}"
+    }
+  }
+}
+
+
